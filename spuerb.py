@@ -10,13 +10,19 @@ diffuse = [0.780392,0.568627,0.113725]
 specular = [0.992157,0.941176,0.807843]
 shininess = 27.8974
 
+light_x = width // 2
+light_y = height // 2
+light_z = 0
+
 def calculate_frame(frame):
     cx, cy = width // 2, height // 2
     radius = 60
 
-    lx = cx + int(80 * np.cos(frame * 0.07))
-    ly = cy + int(80 * np.sin(frame * 0.07))
-    lz = 100
+    #lx = cx + int(80 * np.cos(frame * 0.07))
+    #ly = cy + int(80 * np.sin(frame * 0.07))
+    lx = light_x
+    ly = light_y
+    lz = light_z
 
     y, x = np.meshgrid(np.arange(height), np.arange(width), indexing='ij')
     dx = x - cx
@@ -76,13 +82,12 @@ def calculate_frame(frame):
     return img_array
 
 def on_key(event):
-    global running
+    global running, light_x, light_y, light_z, ambient, diffuse, specular, shininess
     if event.keysym == 'Escape':
         root.destroy()
     elif event.keysym == 'space':
         running = not running
     elif event.keysym == '1': #brass
-        global ambient, shininess, specular, diffuse
         ambient = [0.329412,0.223529,0.027451]
         diffuse = [0.780392,0.568627,0.113725]
         specular = [0.992157,0.941176,0.807843]
@@ -132,6 +137,18 @@ def on_key(event):
         diffuse = [0.01,0.01,0.01]
         specular = [0.4,0.4,0.4]
         shininess = 10
+    elif event.keysym == 'Left':
+        light_x = light_x - 5
+    elif event.keysym == 'Right':
+        light_x = light_x + 5
+    elif event.keysym == 'Up':
+        light_y = light_y - 5
+    elif event.keysym == 'Down':
+        light_y = light_y + 5
+    elif event.keysym == 'O':
+        light_z = light_z + 5
+    elif event.keysym == 'P':
+        light_z = max(0,light_z - 5)
     
         
 

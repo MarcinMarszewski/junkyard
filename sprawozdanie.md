@@ -7,12 +7,12 @@ Celem projektu było stworzenie interaktywnej demonstracji komputerowej, która 
 Aplikacja została napisana w języku Python z wykorzystaniem bibliotek NumPy, Pillow oraz Tkinter. Program generuje animowaną scenę 2D, w której wyświetlana jest kula oświetlana przez poruszające się źródło światła.
 
 ## Model oświetlenia
-Do obliczeń wykorzystano uproszczony model Phonga, który uwzględnia trzy składowe światła:
+Do obliczeń wykorzystano uproszczony model Phonga, który uwzględnia trzy składowe światła:  
 
-Ambient (otoczenia) – światło rozproszone w scenie,
-Diffuse (rozproszone) – światło odbite od powierzchni w zależności od kąta padania,
-Specular (lustrzane) – światło odbite w sposób kierunkowy, odpowiadające za połysk.
-Parametry materiału (ambient, diffuse, specular) są definiowane jako osobne wartości dla każdej składowej koloru w przestrzeni RGB z pojedyńczą wartością połysku.
+Ambient (otoczenia) – światło rozproszone w scenie,  
+Diffuse (rozproszone) – światło odbite od powierzchni w zależności od kąta padania,  
+Specular (lustrzane) – światło odbite w sposób kierunkowy, odpowiadające za połysk.  
+Parametry materiału (ambient, diffuse, specular) są definiowane jako osobne wartości dla każdej składowej koloru w przestrzeni RGB z pojedyńczą wartością połysku.  
 
 ## Interfejs użytkownika
 Wyświetlanie: Okno aplikacji wyświetla kulę, której wygląd zmienia się w zależności od wybranego materiału i pozycji światła.
